@@ -1,13 +1,12 @@
 var Posts = require("../models/posts").Posts;
 
 exports.addPost = function(post, next) {
-    console.log("POSTINFO");
-    console.log(post);
     var new_post = new Posts({
        title: post.title,
        imgUrl: post.imgUrl,
        content: post.content,
-       author: post.author
+       author: post.author,
+       tag: post.tag
     });
     
     new_post.save(function(err) {

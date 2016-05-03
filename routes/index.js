@@ -6,35 +6,42 @@ var userService = require('../services/user-services');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    if (!req.user) {
-        console.log('no user logged in');
+    var data = {
+        user: false
+    };
+    if (req.user) {
+        data.user = req.user;
     }
-    res.render('index', {
-        title: 'Login'
-    });
+    res.render('index', data);  //render home page
 });
 
 router.post('/login', function(req, res, next) {
-    if (req.body.rememberMe) {
-        req.session.cookie.maxAge = config.cookiesMaxAge;
-    }
-    next();
-}, function(req, res, next) {
+        if (req.body.rememberMe) {
+            req.session.cookie.maxAge = config.cookiesMaxAge;
+        }
+        next();
+    }, function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
         if (err) {
             return next(err);
         }
         if (!user) {
-            return res.json({error: 'fail'});
-        } else {
-            return res.json(200, {url: '/home/index'});
+            return res.json({
+                error: 'fail'
+            });
         }
+        req.logIn(user, function(err) {
+            if (err) {
+                return next(err);
+            }
+            return res.json({success: '/'});
+        });
     })(req, res, next);
 });
 
 router.get('/logout', function(req, res, next) {
     req.logout();
-    res.redirect('/');
+    res.json({status:'Bye!'});
 });
 
 module.exports = router;

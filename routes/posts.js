@@ -12,15 +12,15 @@ router.get('/create', function(req, res, next) {
     res.render('posts/create', data);
 });
 
-router.get('');
-
 router.post('/create', function(req, res, next) {
+
+    console.log(req.body);
     tagService.findTag(req.body.tag, function(err, tag) {
         if (err) {
             console.log("{error: error}");
             return console.log(err);
         }
-        if(!tag) {
+        if (!tag) {
             tagService.addTag(req.body.tag, function(err) {
                 if (err) {
                     console.log(err);
@@ -28,14 +28,34 @@ router.post('/create', function(req, res, next) {
                         info: req.body.tag,
                         error: err
                     };
-                    return console.log('fail');
+                    return console.log('{status : fail');
                 }
                 console.log('success');
+                next();
             });
         }
-        console.log(req.body.tag);
-        console.log("success");
+        else {
+            next();
+        }
     });
+});
+
+router.post('/create', function(req, res, next) {
+    req.body.tag.forEach(function(x) {
+
+        tagService.findTagId(req.body.tag, function(err, tag) {
+            if (err) {
+                return console.log(err);
+            }
+            console.log('{status: success}')
+            req.body.tag = tag._id;
+            next();
+        });
+
+    });
+});
+
+router.post('/create', function(req, res, next) {
     req.body.author = req.user._id;
     postService.addPost(req.body, function(err) {
         if (err) {
@@ -45,18 +65,14 @@ router.post('/create', function(req, res, next) {
                 info: req.body,
                 error: err
             };
-            
+            console.log('{status : fail}')
             return res.render('posts/create', data);
         }
         console.log('success');
-        res.redirect('/home/index');
+        return res.json({
+            success: '/'
+        });
     });
 });
-
-router.post('/logout', function(req, res, next) {
-    req.logout();
-    res.redirect('/');
-});
-
 
 module.exports = router;

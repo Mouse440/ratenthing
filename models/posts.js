@@ -1,19 +1,19 @@
 var mongoose = require("mongoose");
-var Schema = mongoose.Schema; 
+var Schema = mongoose.Schema;
 
 var postsSchema = new Schema({
     title: {
-        type:String,
+        type: String,
         require: true
     },
     imgUrl: {
-        type:String
+        type: String
     },
     created: {
-        type: Date, 
-        default:Date.now()
+        type: Date,
+        default: Date.now()
     },
-    content:{
+    content: {
         type: String,
         require: true
     },
@@ -21,14 +21,17 @@ var postsSchema = new Schema({
         type: Number,
         max: 5
     },
-    author:{
-        type:mongoose.Schema.Types.ObjectId, ref:'User'
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     },
-    tag:{
-     type: mongoose.Schema.ObjectId, ref: 'Tag'
-   }
-   
-}); 
+    tag: [{
+        type: mongoose.Schema.ObjectId,
+        ref: 'Tag'
+    }]
+
+
+});
 
 
 var Posts = mongoose.model("Posts", postsSchema);
