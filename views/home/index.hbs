@@ -1,0 +1,16 @@
+dsadsadsa
+
+<div class="textwidget margin-top-30">
+    {{#if firstName}}
+    <div id="greeting" style="float:right">
+      <strong>Hi, {{firstName}}!</strong>
+      <a href="/users/logout">Log out</a>
+    </div>
+    <div class="margin-top-30">
+        or <a href="/posts/create">Create a Post</a>
+    </div>
+    <div class="post">
+      {{post}}
+    </div>
+    {{/if}}
+</div>

@@ -1,0 +1,28 @@
+<div class="widget">
+  <form name="create-post-form" id="create-post-form" method="post">
+    <div class="form-group">
+      <label for="Title">Title</label>
+      <input type="text" id="Title" name="title" required value="{{input.title}}" />
+    </div>
+    <div class="form-group">
+      <label for="imgUrl">imgUrl</label>
+      <input type="text" id="imgUrl" name="imgUrl" value="{{input.imgUrl}}" />
+    </div>
+    <div class="form-group">
+      <label for="content">Content</label>
+      <input type="text" id="conten" name="content" required value="{{input.content}}" />
+    </div>
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input type="author" id="author" name="author" required value="{{input.author}}" />
+    </div>
+    <div class="form-group">
+      <label for="tag">tag</label>
+      <input type="text" id="tag" name="tag"  required value="{{input.tag}}" />
+    </div>
+    <div class="form-submit">
+      <input type="submit" value="Create Post" />
+    </div>
+    <span style="color:red;">{{error}}</span>
+  </form>
+</div>

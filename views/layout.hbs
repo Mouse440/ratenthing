@@ -1,10 +1,336 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    {{{body}}}
-  </body>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Ratenthing &mdash; Rate Anything You Want</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Rate anything you want. Say what you feel, people will hear you!" />
+	<meta name="keywords" content="Ratenthing, Rate Anything, Half Pie, Rate, Anything" />
+	<meta name="author" content="Project Half Pie" />
+
+  <!-- 
+	//////////////////////////////////////////////////////
+
+	FREE HTML5 TEMPLATE 
+	DESIGNED & DEVELOPED by FREEHTML5.CO
+		
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	Modification:   Specifically for Ratenthing project
+
+	//////////////////////////////////////////////////////
+	 -->
+
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- Google Webfonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<!-- Material Design Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+
+
+  <!-- Materialize Tags -->
+	<link rel="stylesheet" href="css/materialize-tags.css">
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<!-- Salvattore -->
+	<link rel="stylesheet" href="css/salvattore.css">
+	<!-- Theme Style -->
+	<link rel="stylesheet" href="css/style.css">
+	<!-- Modernizr JS -->
+	<script src="js/lib/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body ng-app='app'>
+
+	<div id="fh5co-offcanvass">
+		<a href="javascript:void(0)" class="fh5co-offcanvass-close js-fh5co-offcanvass-close">Menu <i class="icon-cross"></i> </a>
+		<h1 class="fh5co-logo"><a class="navbar-brand" href="#home">Ratenthing</a></h1>
+		<ul>
+			<li class="active"><a href="#home">Home</a></li>
+			<li><a href="#post">About</a></li>
+			<li><a href="views/pricing.html">Pricing</a></li>
+			<li><a href="views/contact.html">Contact</a></li>
+		</ul>
+		<h3 class="fh5co-lead">Connect with us</h3>
+		<p class="fh5co-social-icons">
+			<a href="#"><i class="icon-twitter"></i></a>
+			<a href="#"><i class="icon-facebook"></i></a>
+			<a href="#"><i class="icon-instagram"></i></a>
+			<a href="#"><i class="icon-dribbble"></i></a>
+			<a href="#"><i class="icon-youtube"></i></a>
+		</p>
+	</div>
+	<header id="fh5co-header" role="banner">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<a class="fh5co-menu-btn" data-toggle="modal" data-target="#registerModal">Signup</a>
+					<a class="fh5co-menu-btn" data-toggle="modal" data-target="#modalLogin">Login</a>
+
+					<a href="javascript:void(0);" class="fh5co-menu-btn js-fh5co-menu-btn">Menu <i class="icon-menu"></i></a> 
+                    <p href="javascript:void(0);" class="fh5co-menu-btn">Hello Duy! </p> 
+					<a class="navbar-brand" href="#/home">Ratenthing</a>		
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- END .header -->
+	
+	{{{body}}}
+	
+	<!-- add post button -->
+	<div class="fixed-action-btn">
+		<a class="btn-floating btn-large waves-effect waves-light red" data-toggle="modal" data-target="#postModal">
+			<i class="material-icons">add</i>
+		</a>
+	</div>
+	
+
+	<!-- Modal -->
+    <!-- Login modal -->
+    <div class="modal fade" id="modalLogin" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4><i class="fa fa-user"></i> Login</h4>
+                </div>
+                <div class="modal-body" style="padding:40px 50px;" ng-controller="LoginController">
+                    <div class="row">
+                        <form class="col-md-12" >
+                            <div class="row">
+                                <div class="input-field">
+                                    <i class="material-icons prefix">email</i>
+                                    <input id="icon_email" type="tel" class="validate" name="email" ng-model="user.email" required>
+                                    <label for="icon_email">Your email</label>
+                                </div>
+
+                                <div class="input-field">
+                                    <i class="material-icons prefix">lock</i>
+                                    <input id="password" type="password" class="validate" name="password" ng-model="user.password" required>
+                                    <label for="password">Password</label>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-lg waves-effect waves-light" ng-click="validateLogin(user)">Login</button>
+                                    <div class="subscription-checkbox">
+                                        <input type="checkbox" id="test6" name="rememberMe" ng-model="user.rememberMe"/>
+                                        <label for="test6">
+                                            <p>Remember Me</p>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--Footer-->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal">X</button>
+                    <div class="options">
+                    <p>Not a member? <a href="javascript:void(0);" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">Sign Up</a></p>
+                    <!-- <p>Forgot <a href="#">Password?</a></p> -->
+                    </div>
+                </div>
+                <!--/.Footer-->
+            </div>
+            <!-- /.Modal content-->
+        </div>
+    </div>
+    <!-- /.Login Modal -->
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+            	<div class="modal-header text-center">
+                    <h4><i class="fa fa-user"></i> Sign Up</h4>
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!--Form-->
+                            <form>
+
+                                <div class="input-field">
+                                    <i class="material-icons prefix">email</i>
+                                    <input id="icon_email" type="tel" class="validate">
+                                    <label for="icon_email">Your email</label>
+                                </div>
+
+                                <div class="input-field">
+                                    <i class="material-icons prefix">lock</i>
+                                    <input id="password" type="password" class="validate">
+                                    <label for="password">Password</label>
+                                </div>
+
+                                <div class="input-field">
+                                    <i class="material-icons prefix">lock</i>
+                                    <input id="password-rep" type="password" class="validate">
+                                    <label for="password-rep">Repeat password</label>
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-lg waves-effect waves-light">Sign up</button>
+                                </div>
+
+                            </form>
+                            <!--/.Form-->
+                        </div>
+                    </div>
+                </div>
+                <!--/.Body-->
+
+                <!--Footer-->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal">X</button>
+                    <div class="options">
+                    <p>Already have an account? <a href="javascript:void(0);" data-toggle="modal" data-target="#modalLogin" data-dismiss="modal">Login</a></p>
+                    </div>
+                </div>
+                <!--/.Footer-->
+            </div>
+        </div>
+    </div>
+    <!--/.Register Modal-->
+
+    <!-- Post Modal -->
+    <div class="modal fade" id="postModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-center">Make a post</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <form class="col-md-12">
+                            <p>We like to receive a messages</p>
+                            <br>
+                            <div class="input-field">
+                                <i class="material-icons prefix">label</i>
+                                <input id="post-subject" type="text" class="validate">
+                                <label for="post-subject">Title</label>
+                            </div>
+                            <div class="input-field">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea id="post-text" class="materialize-textarea"></textarea>
+                                <label for="post-text">Message</label>
+                            </div>
+                            <div class="input-field">
+                                <i class="material-icons prefix">link</i>
+                                <textarea id="post-text" class="materialize-textarea"></textarea>
+                                <label for="post-text">Link</label>
+                            </div>
+                            <div class="input-field">
+                                <i class="material-icons prefix">label</i>
+                                <input id="post-text" type="text" class="materialize-textareas  materialize-tags" data-role="materialtags"></input>
+                                <label for="post-text">Tag</label>
+                            </div>
+                        </form>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-primary waves-effect waves-light">Post</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">X</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--/.Post Modal-->
+
+	<footer id="fh5co-footer">
+		<div class="container">
+			<div class="row row-padded">
+				<div class="col-md-12 text-center">
+					<p class="fh5co-social-icons">
+						<a href="#"><i class="icon-twitter"></i></a>
+						<a href="#"><i class="icon-facebook"></i></a>
+						<a href="#"><i class="icon-instagram"></i></a>
+						<a href="#"><i class="icon-dribbble"></i></a>
+						<a href="#"><i class="icon-youtube"></i></a>
+					</p>
+					<p><small>&copy; Ratenthing Free Rating Platform. <br>Designed & Developed by: Project Half Pie | Images from: <a href="http://flickr.com" target="_blank">flickr.com</a> </small></p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- Angular -->
+	<script type="text/javascript" src="js/lib/angular.min.js"></script>
+	<script type="text/javascript" src="js/lib/angular-route.min.js"></script>
+	<script type="text/javascript" src="js/lib/angular-deckgrid.js"></script>
+	<!-- // <script type="text/javascript" src="js/lib/angular-animate.min.js"></script> -->
+
+	<!-- jQuery -->
+	<script src="js/lib/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/lib/jquery.easing.1.3.js"></script>
+	<!-- Waypoints -->
+	<script src="js/lib/jquery.waypoints.min.js"></script>
+	<!-- // <script src="js/lib/shortcuts/inview.js"></script> -->
+	<!-- Materialize Tags -->
+	<script src="js/lib/materialize-tags.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/lib/bootstrap.min.js"></script>
+	<!-- Mdb -->
+	<script src="js/lib/mdb.min.js"></script>
+	<!-- Magnific Popup -->
+	<!-- // <script src="js/lib/jquery.magnific-popup.min.js"></script> -->
+	<!-- Salvattore -->
+	<!-- // <script src="js/lib/salvattore.min.js"></script> -->
+	<!-- basic-animations.js -->
+	<script src="js/basic-animations.js"></script>
+	<!-- services.js -->
+	<script src="js/services.js"></script>
+	<!-- controller.js -->
+	<script src="js/controller.js"></script>
+	<!-- main.js -->
+	<script src="js/main.js"></script>
+	</body>
 </html>
