@@ -57,7 +57,7 @@ exports.getPostAll = function(next) {
         });
 };
 
-exports.likePost = function(post, next) {
+exports.likes = function(post, next) {
     Posts
         .update({
             _id: post._id
@@ -65,5 +65,10 @@ exports.likePost = function(post, next) {
             $set: {
                 "likes": post.likes
             }
+        }, function(err, item) {
+            if (err) {
+                console.log('{ method : likes }, { status : fail}');
+            }
+            next(err, item);
         });
 };

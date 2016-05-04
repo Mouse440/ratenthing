@@ -92,7 +92,8 @@ router.get('/allpost', function(req, res, next) {
     });
 });
 
-router.get('/postbyuser', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
+    console.log(req.params.id);
     postService.getPost(req.body, function(err, post) {
         if (err) {
             console.log('{ method : /postbyid }, { status : fail }');

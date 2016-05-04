@@ -88,9 +88,26 @@ app.directive('thumbUp', ['$http', function($http,$scope){
                 var currentLikeVal = parseInt($(elem).siblings('.like-value').text()); //get current like value
                 currentLikeVal = (isNaN(currentLikeVal)) ? 0 : currentLikeVal;          //catch corner case
                 $(elem).siblings('.like-value').text(currentLikeVal+1);                 //update val
+                
+                $http({
+                method: 'POST',
+                url: '/posts/like',
+                headers: {'Content-Type': 'application/json; charset=utf-8'},
+                data: {
+                    _id: postId,
+                    likes: currentLikeVal+1
+                }
+                }).success(function (res) {
+                    if(res.error) {
+                        console.log("success!");
+                        
+                    } 
+                });
+            
+                
             }
-            console.log(postIds);
-            // TODO: update the post to server
+            
+            
             
          });
       }

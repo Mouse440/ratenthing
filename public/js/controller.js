@@ -3,43 +3,35 @@ var controllers = angular.module('appControllers',[]);
 controllers.
     controller('FeedController', ['$scope','$http', 'postDataService', function($scope,$http,postDataService){
         var path = '/posts/allpost';
-        /*{       
-                "id": "asdasda1u9njkgsdasdas",
-                "author": "Lorem Author",
-                "title": "Lorem Title",
-                "imgLink": "images/img_29.jpg",
-                "likes": 20,
-                "tagNames": ["category1","category2"],
-                "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
-        }*/
         
-        var filterData = function(raw){
-            console.log(raw);
-            var returnObj = [];
-            if(raw.status) {            //check if data status was ok
-                var d = raw.status;     
-                d.forEach(function(val,i){      //loop through the objects
-                    returnObj[i] = 
-                        { 
-                            id: val._id,
-                            author: val.author.firstName,
-                            title: val.title,
-                            imgLink: val.imgUrl,
-                            description: val.content, 
-                            tagss: []
-                        };
+        
+        // var filterData = function(raw){ 
+        //     console.log(raw);
+        //     var returnObj = [];
+        //     if(raw.status) {            //check if data status was ok
+        //         var d = raw.status;     
+        //         d.forEach(function(val,i){      //loop through the objects
+        //             returnObj[i] = 
+        //                 { 
+        //                     id: val._id,
+        //                     author: val.author.firstName,
+        //                     title: val.title,
+        //                     imgLink: val.imgUrl,
+        //                     description: val.content, 
+        //                     tagss: []
+        //                 };
                         
-                    val.tag.forEach(function(tagObj,i){ //parsing the tags
-                        returnObj[i].tagss.push({
-                            name: tagObj.name,
-                            id: tagObj._id
-                        });
-                    });
-                });
-            } 
+        //             val.tag.forEach(function(tagObj,i){ //parsing the tags
+        //                 returnObj[i].tagss.push({
+        //                     name: tagObj.name,
+        //                     id: tagObj._id
+        //                 });
+        //             });
+        //         });
+        //     } 
             
-            return returnObj;
-        }
+        //     return returnObj;
+        // }
         
         $http.get(path).success(function(data){ //get data
             $scope.loggedIn = $("#my-post").attr('href') ? true : false; //check if user is logged in
