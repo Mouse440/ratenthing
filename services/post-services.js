@@ -20,5 +20,15 @@ exports.addPost = function(post, next) {
 exports.getPost = function(id, next) {
     Posts.find({author: id}, function(err, post) {
         next(err, post);
-    })
+    });
+};
+
+exports.getPostAll = function(next) {
+    Posts
+    .find()
+    .populate('author')
+    .populate('tags')
+    .exec( function(err, post) {
+        next(err, post);
+    });
 };

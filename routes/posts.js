@@ -15,43 +15,39 @@ router.get('/create', function(req, res, next) {
 router.post('/create', function(req, res, next) {
 
     console.log(req.body);
-    tagService.findTag(req.body.tag, function(err, tag) {
+    tagService.findNewTag(req.body.tag, function(err, tag) {
+        console.log('dsadasdasd');
+        console.log(tag);
+        var new_tags = [];
+        tag.forEach(function(x) {
+            if(!isNaN(x)) {
+                new_tags.push(x);
+            }
+        });
         if (err) {
             console.log("{error: error}");
             return console.log(err);
         }
-        if (!tag) {
-            tagService.addTag(req.body.tag, function(err) {
-                if (err) {
-                    console.log(err);
-                    var data = {
-                        info: req.body.tag,
-                        error: err
-                    };
-                    return console.log('{status : fail');
-                }
-                console.log('success');
-                next();
-            });
-        }
-        else {
+        tagService.addTag(req.body.tag, new_tags, function(err) {
+            if (err) {
+                console.log(err);
+                return console.log('{status : fail');
+            }
+            console.log('successdsadasdas');
             next();
-        }
+        });
     });
 });
 
 router.post('/create', function(req, res, next) {
-    req.body.tag.forEach(function(x) {
-
-        tagService.findTagId(req.body.tag, function(err, tag) {
-            if (err) {
-                return console.log(err);
-            }
-            console.log('{status: success}')
-            req.body.tag = tag._id;
-            next();
-        });
-
+            console.log('dsadsadsadsadasdasdasdasdsadas');
+    tagService.findTagId(req.body.tag, function(err, tag) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log('{status: success}');
+        req.body.tag = tag;
+        next();
     });
 });
 
@@ -66,7 +62,7 @@ router.post('/create', function(req, res, next) {
                 error: err
             };
             console.log('{status : fail}')
-            return res.render('posts/create', data);
+            return res.json({fail: 'fail'});
         }
         console.log('success');
         return res.json({
@@ -74,5 +70,15 @@ router.post('/create', function(req, res, next) {
         });
     });
 });
+
+router.get('/allpost', function(req, res, next) {
+    postService.getPostAll( function(err, post) {
+        if (err) {
+            return console.log('{ status : failed }')
+        }
+        console.log('{ status : success }');
+        res.json({status : post});
+    });
+})
 
 module.exports = router;

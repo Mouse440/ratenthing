@@ -38,6 +38,46 @@ app.directive('rntFeedItem',function() { //directive for attaching feed item
 		};
 }); 
 
+app.directive('img', function () {
+    return {
+        restrict: 'E',        
+        link: function (scope, element, attrs) {    
+            // show an image-missing image
+            element.error(function () {
+                element.css('display', 'none');
+            });
+        }
+    }
+});
+
+app.directive('tsTags', function($compile) {
+     var getTemplate = function(tagNames) {
+         var splits = tagNames.substring(1,tagNames.length-1).split(',');
+         
+         var template = '';
+         for(var message in splits) {
+             var cat = splits[message].substring(1,splits[message].length-1);
+             template += ['<span><a>',cat,'</a></span>','&nbsp;'].join('');
+         }
+         return template;
+     };
+      return {
+         restrict: 'E',
+  
+         link: function(scope, element, attrs) {
+            element.html(getTemplate(attrs.tagnames)).show();
+          }
+      };
+ });
+
+app.filter('greaterThan', function () {
+    return function (n, val) {
+        // console.log(n,val);
+        if(parseInt(n) > parseInt(val))
+        return n;
+    };
+});
+
 
 
 

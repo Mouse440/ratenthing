@@ -3,6 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 var config = require('../config');
 var userService = require('../services/user-services');
+var randomHelloGenerator = require('../services/random-hello-services');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,6 +11,7 @@ router.get('/', function(req, res, next) {
         user: false
     };
     if (req.user) {
+        req.user.helloMsg = randomHelloGenerator.genHelloMsg();
         data.user = req.user;
     }
     res.render('index', data);  //render home page

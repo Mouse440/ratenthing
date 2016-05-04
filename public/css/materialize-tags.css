@@ -71,3 +71,58 @@
 
 /*Stole this from materialize css*/
 .chip{display:inline-block;height:32px;font-size:13px;font-weight:500;color:rgba(0,0,0,0.6);line-height:32px;padding:0 12px;border-radius:16px;background-color:#e4e4e4}.chip img{float:left;margin:0 8px 0 -12px;height:32px;width:32px;border-radius:50%}.chip i.material-icons{cursor:pointer;float:right;font-size:16px;line-height:32px;padding-left:8px}
+
+/*custom*/
+a:hover {
+  color: #4285F4;
+  text-decoration: none;
+}
+
+.fh5co-desc i {
+  font-size: 15px;
+}
+
+.fh5co-desc span a {
+  display: inline-block !important;
+}
+
+.fh5co-desc h3 {
+  margin-top: 0;
+}
+
+.fh5co-desc h3 a {
+  color: #717171;
+  transition: 0.3s all;
+  -webkit-transition: 0.3s all;
+  -moz-transition: 0.3s all;
+  -o-transition: 0.3s all;
+}
+
+.fh5co-desc h3 a:hover, .fh5co-desc span a:hover {
+  color: #4285F4;
+  text-decoration: none;
+}
+
+.item-rating {
+  padding-left: 0 !important;
+}
+
+.item-author {
+  padding-right: 0 !important;
+  text-align: right;
+}
+
+.thumb-up {
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.thumb-up:hover {
+  
+  color: #4285F4;
+  font-size: 2rem;
+  transition: 0.3s all;
+  -webkit-transition: 0.3s all;
+  -moz-transition: 0.3s all;
+  -o-transition: 0.3s all;
+}
