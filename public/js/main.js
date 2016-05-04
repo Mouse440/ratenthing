@@ -76,7 +76,7 @@ app.directive('thumbUp', ['$http', function($http,$scope){
       link: function(scope, elem, attr, ctrl) {
          elem.bind('click', function(e) {
             //do something here.
-            console.log($http,attr,elem);
+            console.log(elem[0].attributes['thumb-up']);
          });
       }
    };

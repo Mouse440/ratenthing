@@ -1,7 +1,7 @@
 var config = {};
 
-// config.mongoUri = 'mongodb://localhost:27017/rnt';
-config.mongoUri = 'mongodb://heroku_ckk3bq1j:9s6c3jsgofctjsifa0hpk4p3bl@ds013192.mlab.com:13192/heroku_ckk3bq1j';
+//config.mongoUri = 'mongodb://localhost:27017/rnt';
+config.mongoUri = 'mongodb://duynguyen0428:cuongduy0428@ds013232.mlab.com:13232/rnt';
 config.cookiesMaxAge = 30 * 24 * 3600 * 1000;
 
 module.exports = config;

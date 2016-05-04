@@ -28,6 +28,7 @@ exports.getPostAll = function(next) {
     .find()
     .populate('author')
     .populate('tag')
+    .sort({created:'asc'})
     .exec( function(err, post) {
         next(err, post);
     });
