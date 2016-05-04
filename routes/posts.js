@@ -28,19 +28,20 @@ router.post('/create', function(req, res, next) {
             console.log("{error: error}");
             return console.log(err);
         }
-        tagService.addTag(req.body.tag, new_tags, function(err) {
+        tagService.addTag(req.body.tag, new_tags, function(err, num) {
             if (err) {
                 console.log(err);
                 return console.log('{status : fail');
             }
             console.log('successdsadasdas');
-            next();
+            if(num === new_tags.length) {
+                next();
+            }
         });
     });
 });
 
 router.post('/create', function(req, res, next) {
-            console.log('dsadsadsadsadasdasdasdasdsadas');
     tagService.findTagId(req.body.tag, function(err, tag) {
         if (err) {
             return console.log(err);

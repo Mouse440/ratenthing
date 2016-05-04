@@ -65,9 +65,6 @@ controllers.
     }]).
     controller('RegisterController', ['$scope','$http','$window', function($scope,$http,$window) {
         $scope.error = false;
-        // $scope.clear = function(user){
-        //     user.
-        // };
         $scope.register = function(user) {
             console.log(user);
             var url = '/users/create';
@@ -115,5 +112,10 @@ controllers.
                     }
                     
                 });
+        }
+    }]).
+    controller('CardController', ['$scope','$http','$window', function($scope,$http,$window) {
+        $scope.like = function(){
+            console.log("like!");
         }
     }]);

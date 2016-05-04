@@ -19,12 +19,12 @@
 			{{card.description}}
 			
 			<hr>
-			<div class="item-rating col-xs-7 col-sm-7 col-md-7">
-			  <i class="fa fa-thumbs-o-up thumb-up" aria-hidden="true"></i>
+			<div class="item-rating col-xs-4 col-sm-4 col-md-4">
+			  <i class="fa fa-thumbs-o-up thumb-up" aria-hidden="true" ng-click="click()"></i>
 			  <span>{{card.likes | greaterThan:0}}</span>
 			</div>
-			<div class="item-author col-xs-5 col-sm-5 col-md-5">
-			  asdasdasd
+			<div class="item-author col-xs-8 col-sm-8 col-md-8">
+			  {{card.author}}
 			</div>
 
 		</div>

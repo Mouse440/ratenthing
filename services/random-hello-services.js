@@ -182,7 +182,6 @@ var hellos = [
     {"Reunion": "Hello"},
     {"Romania": "Salut"},
     {"Serbia": "Zdravo"},
-    {"Russian Federation": "&#1047;&#1076;&#1088;&#1072;&#1074;&#1089;&#1090;&#1074;&#1091;&#1081;&#1090;&#1077;"},
     {"Rwanda": "Hello"},
     {"Saudi Arabia": "Marhaba"},
     {"Solomon Islands": "Hello"},

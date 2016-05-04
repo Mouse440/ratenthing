@@ -1,5 +1,6 @@
 [
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_1n.jpg",
                 "likes": 0,
@@ -7,6 +8,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_2.jpg",
                 "likes": 10,
@@ -14,6 +16,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_3.jpg",
                 "likes": 200,
@@ -21,6 +24,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_4.jpg",
                 "likes": 20,
@@ -28,6 +32,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_5.jpg",
                 "likes": 0,
@@ -35,6 +40,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_6.jpg",
                 "likes": 62,
@@ -42,6 +48,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_7.jpg",
                 "likes": 20,
@@ -49,6 +56,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_8.jpg",
                 "likes": 20,
@@ -56,6 +64,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_9.jpg",
                 "likes": 20,
@@ -63,6 +72,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_21.jpg",
                 "likes": 20,
@@ -70,6 +80,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_10.jpg",
                 "likes": 20,
@@ -77,6 +88,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_11.jpg",
                 "likes": 20,
@@ -84,6 +96,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_12.jpg",
                 "likes": 20,
@@ -91,6 +104,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_13.jpg",
                 "likes": 20,
@@ -98,6 +112,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_14.jpg",
                 "likes": 20,
@@ -105,6 +120,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_15.jpg",
                 "likes": 20,
@@ -112,6 +128,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_16.jpg",
                 "likes": 20,
@@ -119,6 +136,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_18.jpg",
                 "likes": 20,
@@ -126,6 +144,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_17.jpg",
                 "likes": 20,
@@ -133,6 +152,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_19.jpg",
                 "likes": 20,
@@ -140,6 +160,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_20.jpg",
                 "likes": 20,
@@ -147,6 +168,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_22.jpg",
                 "likes": 20,
@@ -154,6 +176,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_23.jpg",
                 "likes": 20,
@@ -161,6 +184,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_24.jpg",
                 "likes": 20,
@@ -168,6 +192,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_25.jpg",
                 "likes": 20,
@@ -175,6 +200,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_26.jpg",
                 "likes": 20,
@@ -182,6 +208,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_27.jpg",
                 "likes": 20,
@@ -189,6 +216,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_28.jpg",
                 "likes": 20,
@@ -196,6 +224,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_29.jpg",
                 "likes": 20,
@@ -203,6 +232,7 @@
                 "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
         },
         {       
+                "author": "Lorem Author",
                 "title": "Lorem Title",
                 "imgLink": "images/img_30.jpg",
                 "likes": 20,

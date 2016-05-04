@@ -1,9 +1,11 @@
 var Tag = require("../models/tag").Tag;
 
 exports.addTag = function(ori_tags, new_tags, next) {
+    console.log('addTag');
     var counter = 0;
     new_tags.forEach(function(x) {
         counter++;
+        console.log(counter);
         var new_tag = new Tag({
             name: ori_tags[x]
         });
@@ -14,7 +16,7 @@ exports.addTag = function(ori_tags, new_tags, next) {
                 return next(err);
             }
             if (counter === new_tags.length) {
-                next(null);
+                next(err, counter);
             }
         });
     });
@@ -42,7 +44,6 @@ exports.findTagId = function(tags, next) {
     var tags_size = tags.length;
     console.log("accessed");
     tags.forEach(function(x) {
-        console.log("dsa" + x);
         Tag.findOne({
             name: x
         }, function(err, tag) {
