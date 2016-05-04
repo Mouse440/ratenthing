@@ -13,8 +13,6 @@
     "express": "^4.11.2",
     "express-generator": "^4.13.1",
     "hbs": "~2.8.0",
-    "mongodb": "^2.1.18",
-    "mongojs": "^2.4.0",
     "mongoose": "4.1.9",
     "morgan": "~1.5.1"
   }

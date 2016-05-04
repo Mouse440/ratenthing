@@ -45,12 +45,30 @@ controllers.
             // console.log(data);
             $scope.loggedIn = $("#my-post").attr('href') ? true : false; //check if user is logged in
             
-            filterData(data).then(function(parsedData) {
-                $scope.content = parsedData;
+            var returnObj = [];
+            if(data.status) {            //check if data status was ok
+                var d = data.status;     
+                d.forEach(function(val,i){      //loop through the objects
+                    returnObj[i] = 
+                        { 
+                            id: val._id,
+                            author: val.author.firstName,
+                            title: val.title,
+                            imgLink: val.imgUrl,
+                            description: val.content, 
+                            tagss: []
+                        };
+                        
+                    val.tag.forEach(function(tagObj,i){ //parsing the tags
+                        returnObj[i].tagss.push({
+                            name: tagObj.name,
+                            id: tagObj._id
+                        });
+                    });
+                });
+                $scope.content = returnObj;
                 postDataService.setData(data); //cache data to the global service 
-                console.log(parsedData);
-            });  //get the data and return it to the scope
-            
+            } 
         });
     }]).
     controller('SinglePostController', ['$scope','$http', '$routeParams', '$anchorScroll', '$location', 'postDataService', function($scope,$http,$routeParams,$anchorScroll,$location, postDataService){
