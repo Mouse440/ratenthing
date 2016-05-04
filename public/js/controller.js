@@ -42,14 +42,11 @@ controllers.
         }
         
         $http.get(path).success(function(data){ //get data
-            // console.log(data);
-            // console.log(data);
             $scope.loggedIn = $("#my-post").attr('href') ? true : false; //check if user is logged in
             
             var returnObj = [];
-            
+                // parsing data
                 var d = data.status;    
-                
                 for(var i in d) {
                     var val = d[i];
                     returnObj[i] = { 
@@ -58,21 +55,22 @@ controllers.
                             title: val.title,
                             imgLink: val.imgUrl,
                             description: val.content, 
+                            likes: val.likes,
                             tagss: Array()
                         };
                     
                     for(var j in val.tag) {
                         var tagObj = val.tag[j];
-                        console.log(tagObj);
-                        returnObj[i].tagss.push({
-                            name: tagObj.name,
-                            id: tagObj._id
-                        });
+                        if(tagObj) {                    //there is a tag
+                            returnObj[i].tagss.push({
+                                name: tagObj.name,
+                                id: tagObj._id
+                            });
+                        }
                     }
                 }
                 $scope.content = returnObj;
                 postDataService.setData(data); //cache data to the global service
-                console.log($scope.content);
         });
         
         
