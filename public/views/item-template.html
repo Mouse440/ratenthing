@@ -20,8 +20,8 @@
 			
 			<hr>
 			<div class="item-rating col-xs-4 col-sm-4 col-md-4">
-			  <i class="fa fa-thumbs-o-up thumb-up" aria-hidden="true" thumb-up="{{card.title}}" ></i>
-			  <span>{{card.likes | greaterThan:0}}</span>
+			  <i class="fa fa-thumbs-o-up thumb-up" aria-hidden="true" thumb-up="{{card.id}}" ></i>
+			  <span class="like-value">{{card.likes | greaterThan:0}}</span>
 			</div>
 			<div class="item-author col-xs-8 col-sm-8 col-md-8">
 			  {{card.author}}

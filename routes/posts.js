@@ -12,9 +12,11 @@ router.get('/create', function(req, res, next) {
     res.render('posts/create', data);
 });
 
-router.post('/create', function(req, res, next) {
+router.post('/like', function(req, res, next) {
+    
+});
 
-    console.log(req.body);
+router.post('/create', function(req, res, next) {
     tagService.findNewTag(req.body.tag, function(err, tag) {
         console.log('dsadasdasd');
         console.log(tag);

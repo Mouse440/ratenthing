@@ -71,12 +71,24 @@ app.directive('tsTags', function($compile) {
  });
  
 app.directive('thumbUp', ['$http', function($http,$scope){ 
+    var postIds = [];
    return {
       restrict: 'A', //attribute only
       link: function(scope, elem, attr, ctrl) {
          elem.bind('click', function(e) {
             //do something here.
-            console.log(elem[0].attributes['thumb-up']);
+            var postId = elem[0].attributes['thumb-up'].nodeValue;
+            if(postIds.indexOf(postId) == -1) {
+                postIds.push(postId);
+                $(elem).addClass('liked');              //visual affect for liked
+                
+                var currentLikeVal = parseInt($(elem).siblings('.like-value').text()); //get current like value
+                currentLikeVal = (isNaN(currentLikeVal)) ? 0 : currentLikeVal;          //catch corner case
+                $(elem).siblings('.like-value').text(currentLikeVal+1);                 //update val
+            }
+            console.log(postIds);
+            // TODO: update the post to server
+            
          });
       }
    };

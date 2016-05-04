@@ -17,9 +17,8 @@ var postsSchema = new Schema({
         type: String,
         require: true
     },
-    rating: {
-        type: Number,
-        max: 5
+    likes: {
+        type: Number
     },
     author: {
         type: mongoose.Schema.Types.ObjectId,
