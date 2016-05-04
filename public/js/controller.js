@@ -25,10 +25,14 @@ controllers.
                             title: val.title,
                             imgLink: val.imgUrl,
                             description: val.content, 
-                            tagNames: []
+                            tagss: []
                         };
-                    val.tag.forEach(function(val,i){
                         
+                    val.tag.forEach(function(tagObj,i){ //parsing the tags
+                        returnObj[i].tagss.push({
+                            name: tagObj.name,
+                            id: tagObj._id
+                        });
                     });
                 });
             } 
@@ -37,9 +41,7 @@ controllers.
         
         $http.get(path).success(function(data){ //get data
             $scope.loggedIn = $("#my-post").attr('href') ? true : false; //check if user is logged in
-            $scope.content = data;  //get the data and return it to the scope
-            // console.log($scope.content);
-            filterData(data);
+            $scope.content = filterData(data);  //get the data and return it to the scope
             // postDataService.setData(data); //cache data to the global service 
         });
     }]).

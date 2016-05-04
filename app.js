@@ -21,7 +21,6 @@ var restrict = require('./auth/restrict')
 passportConfig();
 
 mongoose.connect(process.env.MONGOLAB_URI ||config.mongoUri);
-
 var app = express();
 
 // view engine setup
