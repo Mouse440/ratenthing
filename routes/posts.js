@@ -92,31 +92,43 @@ router.get('/allpost', function(req, res, next) {
     });
 });
 
-router.get('/:id', function(req, res, next) {
-    console.log(req.params.id);
-    postService.getPost(req.body, function(err, post) {
+router.get('/getbyuser/:id', function(req, res, next) {
+    postService.getPostByUser(req.params.id, function(err, post) {
         if (err) {
-            console.log('{ method : /postbyid }, { status : fail }');
+            console.log('{ method : /getbyuser }, { status : fail }');
             return console.log(err);
         }
-        console.log('{ method : /postbyid }, { status : pass }');
+        console.log('{ method : /getbyuser }, { status : pass }');
         res.json({
             info: post
         });
     });
 });
 
-router.get('/postbytag', function(req, res, next) {
-    postService.getPostByTag(req.body, function(err, post) {
+router.get('/getbyid/:id', function(req, res, next) {
+    postService.getPostById(req.params.id, function(err, post) {
         if (err) {
-            console.log('{ method : /postbytag }, { status : fail }');
+            console.log('{ method : /getbyid }, { status : fail }');
             return console.log(err);
         }
-        console.log('{ method : /postbytag }, { status : pass }');
+        console.log('{ method : /getbyid }, { status : pass }');
+        res.json({
+            info : post
+        });
+    });
+});
+
+router.get('/getbytag/:id', function(req, res, next) {
+    postService.getPostByTag(req.params.id, function(err, post) {
+        if (err) {
+            console.log('{ method : /getbytag }, { status : fail }');
+            return console.log(err);
+        }
+        console.log('{ method : /getbytag }, { status : pass }');
         res.json({
             info: post
         });
-    })
+    });
 });
 
 module.exports = router;

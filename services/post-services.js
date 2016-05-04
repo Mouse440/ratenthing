@@ -18,12 +18,12 @@ exports.addPost = function(post, next) {
     });
 };
 
-exports.getPost = function(post, next) {
+exports.getPostByUser = function(post, next) {
     Posts.find({
-        author: post._id
+        author: post
     }, function(err, post) {
         if (err) {
-            console.log('{ method : exports.getPost }, { status : fail }');
+            console.log('{ method : exports.getPostByUser }, { status : fail }');
             return console.log(err);
         }
         console.log('{ method : exports.getPost }, { status : pass }');
@@ -31,9 +31,23 @@ exports.getPost = function(post, next) {
     });
 };
 
+exports.getPostById = function(post, next) {
+    Posts
+    .find({
+        _id: post
+    }, function(err, post) {
+        if (err) {
+            console.log('{ method : exports.getPostById }, { status : fail }');
+            return console.log(err);
+        }
+        console.log('{ method : exports.getPostById }, { status : pass }');
+        next(err, post);
+    });
+};
+
 exports.getPostByTag = function(post, next) {
     Posts.find({
-        tag: [post._id]
+        tag: post
     }, function(err, post) {
         if (err) {
             console.log('{ method : exports.getPostByTag }, { status : fail }');
@@ -67,8 +81,10 @@ exports.likes = function(post, next) {
             }
         }, function(err, item) {
             if (err) {
-                console.log('{ method : likes }, { status : fail}');
+                console.log('{ method : likes }, { status : fail }');
+                return console.log(err);
             }
+            console.log('{ method : likes }, { status : fail }')
             next(err, item);
         });
 };
