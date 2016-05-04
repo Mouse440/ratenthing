@@ -11,18 +11,18 @@ var userService = require('../services/user-services');
 //     res.render('users/create', data);
 // });
 
-router.post('/create', function(req, res, next) { 
+router.post('/create', function(req, res, next) {
     userService.addUser(req.body, function(err) {
         if (err) {
-            return res.json(
-                {error: err}
-            );
+            return res.json({
+                error: err
+            });
         }
         console.log('success');
         req.login(req.body, function(err) {
-            res.json(
-                {success: '/'}
-            );
+            res.json({
+                success: '/'
+            });
         });
     });
 });

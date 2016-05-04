@@ -42,15 +42,17 @@ controllers.
         }
         
         $http.get(path).success(function(data){ //get data
+            console.log(data);
             // console.log(data);
             $scope.loggedIn = $("#my-post").attr('href') ? true : false; //check if user is logged in
             
             var returnObj = [];
-            if(data.status) {            //check if data status was ok
-                var d = data.status;     
-                d.forEach(function(val,i){      //loop through the objects
-                    returnObj[i] = 
-                        { 
+            
+                var d = data.status;    
+                
+                for(var i in d) {
+                    var val = d[i];
+                    returnObj[i] = { 
                             id: val._id,
                             author: val.author.firstName,
                             title: val.title,
@@ -58,18 +60,21 @@ controllers.
                             description: val.content, 
                             tagss: []
                         };
-                        
-                    val.tag.forEach(function(tagObj,i){ //parsing the tags
+                    
+                    for(var j in val.tag) {
+                        var tagObj = val.tag[i];
                         returnObj[i].tagss.push({
                             name: tagObj.name,
                             id: tagObj._id
                         });
-                    });
-                });
+                    }
+                }
                 $scope.content = returnObj;
-                postDataService.setData(data); //cache data to the global service 
-            } 
+                postDataService.setData(data); //cache data to the global service
+                console.log($scope.content);
         });
+        
+        
     }]).
     controller('SinglePostController', ['$scope','$http', '$routeParams', '$anchorScroll', '$location', 'postDataService', function($scope,$http,$routeParams,$anchorScroll,$location, postDataService){
         var id = $routeParams.postId;
