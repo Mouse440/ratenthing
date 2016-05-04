@@ -16,7 +16,9 @@ router.get('/index', restrict, function(req, res, next) {
             firstName: req.user ? req.user.firstName : null,
             post: pos
         };
-        res.json({ info: data });
+        res.json({
+            info: data
+        });
     });
 });
 

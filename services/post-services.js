@@ -5,7 +5,7 @@ exports.addPost = function(post, next) {
         title: post.title,
         imgUrl: post.imgUrl,
         content: post.content,
-        likes: post.likes,
+        likes: 0,
         author: post.author,
         tag: post.tag
     });
@@ -22,11 +22,11 @@ exports.getPost = function(post, next) {
     Posts.find({
         author: post._id
     }, function(err, post) {
-        if(err) {
-            console.log('{ method : exports.getPost, status : fail }');
+        if (err) {
+            console.log('{ method : exports.getPost }, { status : fail }');
             return console.log(err);
         }
-        console.log('{ method : exports.getPost, status : pass }');
+        console.log('{ method : exports.getPost }, { status : pass }');
         next(err, post);
     });
 };
@@ -36,10 +36,10 @@ exports.getPostByTag = function(post, next) {
         tag: [post._id]
     }, function(err, post) {
         if (err) {
-            console.log('{ method : exports.getPostByTag, status : fail }');
+            console.log('{ method : exports.getPostByTag }, { status : fail }');
             return console.log(err);
         }
-        console.log('{ method : exports.getPostByTag, status : pass }');
+        console.log('{ method : exports.getPostByTag }, { status : pass }');
         next(err, post);
     });
 };
@@ -59,6 +59,11 @@ exports.getPostAll = function(next) {
 
 exports.likePost = function(post, next) {
     Posts
-    .find({_id: post._id})
-    .update()
-}
+        .update({
+            _id: post._id
+        }, {
+            $set: {
+                "likes": post.likes
+            }
+        });
+};

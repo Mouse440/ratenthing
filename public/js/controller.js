@@ -14,6 +14,7 @@ controllers.
         }*/
         
         var filterData = function(raw){
+            console.log(raw);
             var returnObj = [];
             if(raw.status) {            //check if data status was ok
                 var d = raw.status;     
@@ -36,13 +37,20 @@ controllers.
                     });
                 });
             } 
+            
             return returnObj;
         }
         
         $http.get(path).success(function(data){ //get data
+            // console.log(data);
             $scope.loggedIn = $("#my-post").attr('href') ? true : false; //check if user is logged in
-            $scope.content = filterData(data);  //get the data and return it to the scope
-            // postDataService.setData(data); //cache data to the global service 
+            
+            filterData(data).then(function(parsedData) {
+                $scope.content = parsedData;
+                postDataService.setData(data); //cache data to the global service 
+                console.log(parsedData);
+            });  //get the data and return it to the scope
+            
         });
     }]).
     controller('SinglePostController', ['$scope','$http', '$routeParams', '$anchorScroll', '$location', 'postDataService', function($scope,$http,$routeParams,$anchorScroll,$location, postDataService){

@@ -13,7 +13,14 @@ router.get('/create', function(req, res, next) {
 });
 
 router.post('/like', function(req, res, next) {
-    
+    postService.likes(req.body, function(err, post) {
+        if (err) {
+            console.log('{ method : /like }, { status : fail }');
+            return console.log(err);
+        }
+        console.log('{ method : /like }, { status : pass }');
+        res.json({info : post});
+    });
 });
 
 router.post('/create', function(req, res, next) {
@@ -22,7 +29,7 @@ router.post('/create', function(req, res, next) {
         console.log(tag);
         var new_tags = [];
         tag.forEach(function(x) {
-            if(!isNaN(x)) {
+            if (!isNaN(x)) {
                 new_tags.push(x);
             }
         });
@@ -33,9 +40,8 @@ router.post('/create', function(req, res, next) {
         tagService.addTag(req.body.tag, new_tags, function(err, num) {
             if (err) {
                 console.log(err);
-                return console.log('{status : fail');
+                return console.log('{status : fail}');
             }
-            console.log('going next');
             next();
         });
     });
@@ -63,9 +69,11 @@ router.post('/create', function(req, res, next) {
                 error: err
             };
             console.log('{status : fail}')
-            return res.json({fail: 'fail'});
+            return res.json({
+                fail: 'fail'
+            });
         }
-        console.log('success');
+        console.log('{ status : pass }');
         return res.json({
             success: '/'
         });
@@ -78,29 +86,35 @@ router.get('/allpost', function(req, res, next) {
             return console.log('{ status : failed }')
         }
         console.log('{ status : success }');
-        res.json({status : post});
+        res.json({
+            status: post
+        });
     });
 });
 
 router.get('/postbyuser', function(req, res, next) {
     postService.getPost(req.body, function(err, post) {
         if (err) {
-            console.log('{ method : /postbyid, status : fail }');
+            console.log('{ method : /postbyid }, { status : fail }');
             return console.log(err);
         }
-        console.log('{ method : /postbyid, status : pass }');
-        res.json({info : post});
+        console.log('{ method : /postbyid }, { status : pass }');
+        res.json({
+            info: post
+        });
     });
 });
 
 router.get('/postbytag', function(req, res, next) {
     postService.getPostByTag(req.body, function(err, post) {
         if (err) {
-            console.log('{ method : /postbytag, status : fail }');
+            console.log('{ method : /postbytag }, { status : fail }');
             return console.log(err);
         }
-        console.log('{ method : /postbytag, status : pass }');
-        res.json({info : post});
+        console.log('{ method : /postbytag }, { status : pass }');
+        res.json({
+            info: post
+        });
     })
 });
 

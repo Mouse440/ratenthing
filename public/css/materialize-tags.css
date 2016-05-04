@@ -78,6 +78,10 @@ a:hover {
   text-decoration: none;
 }
 
+.fh5co-desc {
+  min-width: 100%;
+}
+
 .fh5co-desc i {
   font-size: 15px;
 }

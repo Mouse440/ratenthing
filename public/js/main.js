@@ -52,12 +52,14 @@ app.directive('img', function () {
 
 app.directive('tsTags', function($compile) {
      var getTemplate = function(tagNames) {
-         var splits = tagNames.substring(1,tagNames.length-1).split(',');
-         
+         var splits = tagNames.substring(1,tagNames.length-1);
+        //  console.log(tagNames);
          var template = '';
-         for(var message in splits) {
-             var cat = splits[message].substring(1,splits[message].length-1);
-             template += ['<span><a>',cat,'</a></span>','&nbsp;'].join('');
+         for(var i in splits) {
+             console.log(splits[i]);
+            // console.log( JSON.parse(splits[message]) );
+            //  var cat = splits[message].substring(1,splits[message].length-1);
+            //  template += ['<span><a>',cat,'</a></span>','&nbsp;'].join('');
          }
          return template;
      };
