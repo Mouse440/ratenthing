@@ -20,7 +20,7 @@ var passportConfig = require('./auth/passport-config');
 var restrict = require('./auth/restrict')
 passportConfig();
 
-mongoose.connect(config.mongoUri);
+mongoose.connect(process.env.MONGOLAB_URI ||config.mongoUri);
 
 var app = express();
 

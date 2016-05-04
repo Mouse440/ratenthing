@@ -14,21 +14,33 @@ controllers.
         }*/
         
         var filterData = function(raw){
-            var returnObj = []
-            if(raw.status) {
-                var d = raw.status;
-                d.forEach(function(val,i){
-                    returnObj[i].id = val._id;
+            var returnObj = [];
+            if(raw.status) {            //check if data status was ok
+                var d = raw.status;     
+                d.forEach(function(val,i){      //loop through the objects
+                    returnObj[i] = 
+                        { 
+                            id: val._id,
+                            author: val.author.firstName,
+                            title: val.title,
+                            imgLink: val.imgUrl,
+                            description: val.content, 
+                            tagNames: []
+                        };
+                    val.tag.forEach(function(val,i){
+                        
+                    });
                 });
-            } else 
-                return [];
+            } 
+            return returnObj;
         }
         
         $http.get(path).success(function(data){ //get data
             $scope.loggedIn = $("#my-post").attr('href') ? true : false; //check if user is logged in
             $scope.content = data;  //get the data and return it to the scope
-            console.log($scope.content);
-            postDataService.setData(data); //cache data to the global service 
+            // console.log($scope.content);
+            filterData(data);
+            // postDataService.setData(data); //cache data to the global service 
         });
     }]).
     controller('SinglePostController', ['$scope','$http', '$routeParams', '$anchorScroll', '$location', 'postDataService', function($scope,$http,$routeParams,$anchorScroll,$location, postDataService){

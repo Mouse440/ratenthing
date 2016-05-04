@@ -82,15 +82,26 @@ router.get('/allpost', function(req, res, next) {
     });
 });
 
-router.get('/userpost', function(req, res, next) {
+router.get('/postbyuser', function(req, res, next) {
     postService.getPost(req.body, function(err, post) {
         if (err) {
-            console.log('{ method : /userpost, status : fail }');
+            console.log('{ method : /postbyid, status : fail }');
             return console.log(err);
         }
-        console.log('{ method : /userpost, status : pass }');
+        console.log('{ method : /postbyid, status : pass }');
         res.json({info : post});
     });
+});
+
+router.get('/postbytag', function(req, res, next) {
+    postService.getPostByTag(req.body, function(err, post) {
+        if (err) {
+            console.log('{ method : /postbytag, status : fail }');
+            return console.log(err);
+        }
+        console.log('{ method : /postbytag, status : pass }');
+        res.json({info : post});
+    })
 });
 
 module.exports = router;

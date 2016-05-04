@@ -79,7 +79,7 @@ app.directive('thumbUp', ['$http', function($http,$scope){
             //do something here.
             var postId = elem[0].attributes['thumb-up'].nodeValue;
             if(postIds.indexOf(postId) == -1) {
-                postIds.push(postId);
+                postIds.push(postId);                   //stuff the post id
                 $(elem).addClass('liked');              //visual affect for liked
                 
                 var currentLikeVal = parseInt($(elem).siblings('.like-value').text()); //get current like value
