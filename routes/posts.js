@@ -73,13 +73,24 @@ router.post('/create', function(req, res, next) {
 });
 
 router.get('/allpost', function(req, res, next) {
-    postService.getPostAll( function(err, post) {
+    postService.getPostAll(function(err, post) {
         if (err) {
             return console.log('{ status : failed }')
         }
         console.log('{ status : success }');
         res.json({status : post});
     });
-})
+});
+
+router.get('/userpost', function(req, res, next) {
+    postService.getPost(req.body, function(err, post) {
+        if (err) {
+            console.log('{ method : /userpost, status : fail }');
+            return console.log(err);
+        }
+        console.log('{ method : /userpost, status : pass }');
+        res.json({info : post});
+    });
+});
 
 module.exports = router;

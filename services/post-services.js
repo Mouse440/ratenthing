@@ -22,6 +22,24 @@ exports.getPost = function(post, next) {
     Posts.find({
         author: post._id
     }, function(err, post) {
+        if(err) {
+            console.log('{ method : exports.getPost, status : fail }');
+            return console.log(err);
+        }
+        console.log('{ method : exports.getPost, status : pass }');
+        next(err, post);
+    });
+};
+
+exports.getPostByTag = function(post, next) {
+    Posts.find({
+        tag: [post._id]
+    }, function(err, post) {
+        if (err) {
+            console.log('{ method : exports.getPostByTag, status : fail }');
+            return console.log(err);
+        }
+        console.log('{ method : exports.getPostByTag, status : pass }');
         next(err, post);
     });
 };

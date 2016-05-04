@@ -2,10 +2,32 @@ var controllers = angular.module('appControllers',[]);
 
 controllers.
     controller('FeedController', ['$scope','$http', 'postDataService', function($scope,$http,postDataService){
-        var path = 'fake-data/data.json';
+        var path = '/posts/allpost';
+        /*{       
+                "id": "asdasda1u9njkgsdasdas",
+                "author": "Lorem Author",
+                "title": "Lorem Title",
+                "imgLink": "images/img_29.jpg",
+                "likes": 20,
+                "tagNames": ["category1","category2"],
+                "description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"
+        }*/
+        
+        var filterData = function(raw){
+            var returnObj = []
+            if(raw.status) {
+                var d = raw.status;
+                d.forEach(function(val,i){
+                    returnObj[i].id = val._id;
+                });
+            } else 
+                return [];
+        }
         
         $http.get(path).success(function(data){ //get data
+            $scope.loggedIn = $("#my-post").attr('href') ? true : false; //check if user is logged in
             $scope.content = data;  //get the data and return it to the scope
+            console.log($scope.content);
             postDataService.setData(data); //cache data to the global service 
         });
     }]).
@@ -40,7 +62,6 @@ controllers.
                 data: {email: data.email, password: data.password, rememberMe: data.rememberMe}
             }).success(function (res) {
                 if(res.error) {
-                    console.log("response:",res, "flag errors");
                     $scope.errorMessage = "Your credential was incorrect. Please try again.";
                     $scope.error = true;
                 } else {

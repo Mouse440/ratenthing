@@ -60,3 +60,15 @@ exports.findTagId = function(tags, next) {
         });
     });
 };
+
+exports.findTag = function(tags, next) {
+    Tag
+    .findOne({ _id : tags._id}, function(err, tag) {
+        if(err) {
+            console.log('{ status : err }');
+            return console.log(err);
+        }
+        console.log('{ method : findTag, status : success }');
+        next(err, tag);
+    });
+};
