@@ -4,8 +4,7 @@ exports.addTag = function(ori_tags, new_tags, next) {
     console.log('addTag');
     var counter = 0;
     new_tags.forEach(function(x) {
-        counter++;
-        console.log(counter);
+        console.log('addTagCounter');
         var new_tag = new Tag({
             name: ori_tags[x]
         });
@@ -15,8 +14,10 @@ exports.addTag = function(ori_tags, new_tags, next) {
                 console.log('fail');
                 return next(err);
             }
+            counter++;
             if (counter === new_tags.length) {
-                next(err, counter);
+                console.log('how you do that HUH')
+                next(null);
             }
         });
     });

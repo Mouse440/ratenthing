@@ -69,10 +69,21 @@ app.directive('tsTags', function($compile) {
           }
       };
  });
+ 
+app.directive('thumbUp', ['$http','$scope', function($http,$scope){ 
+   return {
+      restrict: 'A', //attribute only
+      link: function(scope, elem, attr, ctrl) {
+         elem.bind('click', function(e) {
+            //do something here.
+            console.log($http,$scope,elem);
+         });
+      }
+   };
+}]);
 
 app.filter('greaterThan', function () {
     return function (n, val) {
-        // console.log(n,val);
         if(parseInt(n) > parseInt(val))
         return n;
     };

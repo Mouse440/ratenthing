@@ -1,34 +1,32 @@
-<div ng-controller="CardController">
-	<div id="fh5co-board" deckgrid class="deckgrid" source="content" data-items-length="{{content.length}}">
-		<div class="item" >
-			<div class="animate-box" rnt-feed-item>
-				<a href="#post/{{card.$index}}" class="image-popup fh5co-board-img" title="{{card.description}}">
-					<img src="" data-ng-src="{{card.imgLink}}" alt="{{card.imgLink}}">
-				</a>
+<div id="fh5co-board" deckgrid class="deckgrid" source="content" data-items-length="{{content.length}}">
+	<div class="item" >
+		<div class="animate-box" rnt-feed-item>
+			<a href="#post/{{card.$index}}" class="image-popup fh5co-board-img" title="{{card.description}}">
+				<img src="" data-ng-src="{{card.imgLink}}" alt="{{card.imgLink}}">
+			</a>
+		</div>
+		
+		<div class="fh5co-desc">
+			<h3>
+				<a href="#post/{{card.$index}}">{{card.title}}</a>
+			</h3>
+			<div class="col-xs-1 col-sm-1 col-md-1" style="padding-left:0;">
+				<i class="fa fa-tags"></i>
 			</div>
+			<ts-tags tagnames={{card.tagNames}}></ts-tags>
 			
-			<div class="fh5co-desc">
-				<h3>
-					<a href="#post/{{card.$index}}">{{card.title}}</a>
-				</h3>
-				<div class="col-xs-1 col-sm-1 col-md-1" style="padding-left:0;">
-					<i class="fa fa-tags"></i>
-				</div>
-				<ts-tags tagnames={{card.tagNames}}></ts-tags>
-				
-				<br/>
-				{{card.description}}
-				
-				<hr>
-				<div class="item-rating col-xs-4 col-sm-4 col-md-4">
-				  <i class="fa fa-thumbs-o-up thumb-up" aria-hidden="true" ng-click="thumbUp()"></i>
-				  <span>{{card.likes | greaterThan:0}}</span>
-				</div>
-				<div class="item-author col-xs-8 col-sm-8 col-md-8">
-				  {{card.author}}
-				</div>
-	
+			<br/>
+			{{card.description}}
+			
+			<hr>
+			<div class="item-rating col-xs-4 col-sm-4 col-md-4">
+			  <i class="fa fa-thumbs-o-up thumb-up" aria-hidden="true" thumb-up></i>
+			  <span>{{card.likes | greaterThan:0}}</span>
 			</div>
+			<div class="item-author col-xs-8 col-sm-8 col-md-8">
+			  {{card.author}}
+			</div>
+
 		</div>
 	</div>
 </div>

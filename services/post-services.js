@@ -27,7 +27,7 @@ exports.getPostAll = function(next) {
     Posts
     .find()
     .populate('author')
-    .populate('tags')
+    .populate('tag')
     .exec( function(err, post) {
         next(err, post);
     });

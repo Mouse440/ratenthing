@@ -113,9 +113,4 @@ controllers.
                     
                 });
         }
-    }]).
-    controller('CardController', ['$scope','$http','$window', function($scope,$http,$window) {
-        $scope.thumbUp = function(){
-            console.log("like!");
-        }
     }]);
