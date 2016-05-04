@@ -33,7 +33,7 @@ router.post('/create', function(req, res, next) {
                 console.log(err);
                 return console.log('{status : fail');
             }
-            console.log('num');
+            console.log(num);
             console.log(new_tags.length);
             if(num === new_tags.length) {
                 next();
