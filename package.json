@@ -16,8 +16,11 @@
     "debug": "~2.1.1",
     "express": "^4.11.2",
     "express-generator": "^4.13.1",
+    "express-session": "^1.13.0",
     "hbs": "~2.8.0",
     "mongoose": "4.1.9",
-    "morgan": "~1.5.1"
+    "morgan": "~1.5.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   }
 }

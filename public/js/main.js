@@ -58,9 +58,10 @@ app.directive('tsTags', function($compile) {
             var parsedTags = JSON.parse(tagNames);
         
             for(var i in parsedTags) {
-                template += ['<span><a>',parsedTags.name,'</a></span>','&nbsp;'].join('');
+                template += ['<span><a>',parsedTags[i].name,'</a></span>','&nbsp;'].join('');
             }
         }
+        
         return template;
      };
       return {
