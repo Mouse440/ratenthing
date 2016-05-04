@@ -42,7 +42,7 @@ controllers.
         }
         
         $http.get(path).success(function(data){ //get data
-            console.log(data);
+            // console.log(data);
             // console.log(data);
             $scope.loggedIn = $("#my-post").attr('href') ? true : false; //check if user is logged in
             
@@ -58,11 +58,12 @@ controllers.
                             title: val.title,
                             imgLink: val.imgUrl,
                             description: val.content, 
-                            tagss: []
+                            tagss: Array()
                         };
                     
                     for(var j in val.tag) {
-                        var tagObj = val.tag[i];
+                        var tagObj = val.tag[j];
+                        console.log(tagObj);
                         returnObj[i].tagss.push({
                             name: tagObj.name,
                             id: tagObj._id
