@@ -71,7 +71,6 @@ controllers.
                 }
                 $scope.content = returnObj;
                 postDataService.setData(data); //cache data to the global service
-                console.log(returnObj);
         });
         
         

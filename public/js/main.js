@@ -52,19 +52,16 @@ app.directive('img', function () {
 
 app.directive('tsTags', function($compile) {
      var getTemplate = function(tagNames) {
-        console.log(tagNames);
-        var tag = JSON.parse(tagNames);
-        // console.log(tag);
-        //  var splits = tagNames.substring(1,tagNames.length-1);
-        //  console.log(tagNames);
-         var template = '';
-        //  for(var i in splits) {
-        //     //  console.log(splits[i]);
-        //     // console.log( JSON.parse(splits[message]) );
-        //     //  var cat = splits[message].substring(1,splits[message].length-1);
-        //     //  template += ['<span><a>',cat,'</a></span>','&nbsp;'].join('');
-        //  }
-         return template;
+        var template = '';
+        
+        if(tagNames) {              //check corner case
+            var parsedTags = JSON.parse(tagNames);
+        
+            for(var i in parsedTags) {
+                template += ['<span><a>',parsedTags.name,'</a></span>','&nbsp;'].join('');
+            }
+        }
+        return template;
      };
       return {
          restrict: 'E',
