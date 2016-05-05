@@ -1,10 +1,15 @@
 var controllers = angular.module('appControllers',[]);
 
 controllers.
-    controller('FeedController', ['$scope','$http', 'postDataService', function($scope,$http,postDataService){
-        var path = '/posts/allpost';
-        
-        
+    controller('FeedController', ['$scope','$http','$routeParams', 'postDataService', function($scope,$http,$routeParams,postDataService){
+        var path = '/posts'; // /allpost
+         
+        if($routeParams.id) {
+            path = [path,$routeParams.action, $routeParams.id].join('/');   
+        } else {
+            path = [path,'allpost'].join('/');
+        }
+    
         // var filterData = function(raw){ 
         //     console.log(raw);
         //     var returnObj = [];
@@ -38,12 +43,13 @@ controllers.
             
             var returnObj = [];
                 // parsing data
-                var d = data.status;    
+                var d = data.status || data.info;    
                 for(var i in d) {
                     var val = d[i];
                     returnObj[i] = { 
                             id: val._id,
                             author: val.author.firstName,
+                            authorId: val.author._id,
                             title: val.title,
                             imgLink: val.imgUrl,
                             description: val.content, 
@@ -70,15 +76,48 @@ controllers.
     controller('SinglePostController', ['$scope','$http', '$routeParams', '$anchorScroll', '$location', 'postDataService', function($scope,$http,$routeParams,$anchorScroll,$location, postDataService){
         var id = $routeParams.postId;
         var data = postDataService.getData();
-        var path = 'fake-data/data.json';
+        var path = ['posts/getbyid/',id].join('');
 
-        $scope.content = data[id];                  //get data from cache
+        // console.log(data,path);
+        // $scope.card = data[id];                  //get data from cache
 
-        if($scope.content == undefined) {           //cache missed
-            $http.get(path).success(function(data){ //get data from source
-                $scope.content = data[id];          //set data to the scope
-            });
-        }
+        // if($scope.card == undefined) {           //cache missed
+        //     $http.get(path).success(function(data){ //get data from source
+        //         $scope.card = data[id];          //set data to the scope
+        //     });
+        // }
+        
+        $http.get(path).success(function(data){ //get data
+            $scope.loggedIn = $("#my-post").attr('href') ? true : false; //check if user is logged in
+            
+            var returnObj = [];
+                // parsing data
+                var d = data.status || data.info;    
+                for(var i in d) {
+                    var val = d[i];
+                    returnObj[i] = { 
+                            id: val._id,
+                            author: val.author.firstName,
+                            authorId: val.author._id,
+                            title: val.title,
+                            imgLink: val.imgUrl,
+                            description: val.content, 
+                            likes: val.likes,
+                            tagss: Array()
+                        };
+                    
+                    for(var j in val.tag) {
+                        var tagObj = val.tag[j];
+                        if(tagObj) {                    //there is a tag
+                            returnObj[i].tagss.push({
+                                name: tagObj.name,
+                                id: tagObj._id
+                            });
+                        }
+                    }
+                }
+                $scope.card = returnObj[0];
+        });
         
         // $location.hash('app-view');
         // $anchorScroll();

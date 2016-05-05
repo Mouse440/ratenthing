@@ -19,6 +19,10 @@ app.config(['$routeProvider', function($routeProvider) {
         	templateUrl: 'views/single-post.html',
         	controller: 'SinglePostController'
         }).
+        when('/post/:action/:id', {								//feed page by userid
+            templateUrl: 'views/item-template.html',
+            controller: 'FeedController'
+        }).
         otherwise({
             redirectTo: '/'						//worst case go back to feed
         });
@@ -53,12 +57,10 @@ app.directive('img', function () {
 app.directive('tsTags', function($compile) {
      var getTemplate = function(tagNames) {
         var template = '';
-        
         if(tagNames) {              //check corner case
             var parsedTags = JSON.parse(tagNames);
-        
             for(var i in parsedTags) {
-                template += ['<span><a>',parsedTags[i].name,'</a></span>','&nbsp;'].join('');
+                template += ['<span><a',' href=#post/getbytag/',parsedTags[i].id,'>',parsedTags[i].name,'</a></span>','&nbsp;'].join('');
             }
         }
         
@@ -79,6 +81,11 @@ app.directive('thumbUp', ['$http', function($http,$scope){
       restrict: 'A', //attribute only
       link: function(scope, elem, attr, ctrl) {
          elem.bind('click', function(e) {
+            if(!$("#user-id").attr("href")) {//user is not logged in 
+                $("#loginRequiredBtnTrigger").click();
+                return;
+            }
+           
             //do something here.
             var postId = elem[0].attributes['thumb-up'].nodeValue;
             if(postIds.indexOf(postId) == -1) {
@@ -106,9 +113,6 @@ app.directive('thumbUp', ['$http', function($http,$scope){
             
                 
             }
-            
-            
-            
          });
       }
    };

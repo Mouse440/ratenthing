@@ -21,7 +21,12 @@ exports.addPost = function(post, next) {
 exports.getPostByUser = function(post, next) {
     Posts.find({
         author: post
-    }, function(err, post) {
+    }).sort({
+        'created':'descending'
+        
+    }).populate('author')
+    .populate('tag')
+    .exec( function(err, post) {
         if (err) {
             console.log('{ method : exports.getPostByUser }, { status : fail }');
             return console.log(err);
@@ -35,7 +40,11 @@ exports.getPostById = function(post, next) {
     Posts
     .find({
         _id: post
-    }, function(err, post) {
+    }).sort({
+        'created':'descending'
+    }).populate('author')
+    .populate('tag')
+    .exec( function(err, post) {
         if (err) {
             console.log('{ method : exports.getPostById }, { status : fail }');
             return console.log(err);
@@ -48,7 +57,11 @@ exports.getPostById = function(post, next) {
 exports.getPostByTag = function(post, next) {
     Posts.find({
         tag: post
-    }, function(err, post) {
+    }).sort({
+        'created': 'descending'
+    }).populate('author')
+    .populate('tag')
+    .exec(function(err, post) {
         if (err) {
             console.log('{ method : exports.getPostByTag }, { status : fail }');
             return console.log(err);

@@ -1,9 +1,26 @@
 <div class="col-md-8 col-md-offset-2">
 
-	<div class="fh5co-spacer fh5co-spacer-sm"></div>
-	<div style="text-align:center;">
-		<img style="display:inline-block;" ng-src="{{content.imgLink}}" alt="Free HTML5 template by FREEHTML5.co" class="img-rounded img-responsive">
+	<div rnt-feed-item style="text-align:center;">
+		<a href="{{card.imgLink}}" class="image-popup fh5co-board-img">
+			<img class="img-rounded img-responsive"  style="display:inline-block;" ng-src="{{card.imgLink}}" alt="{{card.imgLink}}">
+		</a>
 	</div>
-	<h2>Post title</h2>
-	<p>{{content.description}}</p>
+	<h1>{{card.title}}</h1>
+	
+	<!--tags-->
+	<div class="col-xs-1 col-sm-1 col-md-1" style="font-size:1.3rem;">
+		<i class="fa fa-tags"></i>
+	</div>
+	<span ng-repeat="tag in card.tagss" style="font-size:1.3rem;"><a href=#post/getbytag/{{tag.id}}>{{tag.name}}&nbsp;</a></span>
+	
+	
+	<p style="font-size:1.7rem">{{card.description}}</p>
+	<hr style="color:#EF5656;">
+	<div class="item-rating col-xs-4 col-sm-4 col-md-4" >
+	  <i class="fa fa-thumbs-o-up thumb-up-large" aria-hidden="true" thumb-up="{{card.id}}" ></i>
+	  <span class="like-value single-post">{{card.likes | greaterThan:0}}</span>
+	</div>
+	<div class="item-author col-xs-8 col-sm-8 col-md-8">
+	  <i class="fa fa-user single-post" aria-hidden="true">&nbsp;<span><a href="#post/getbyuser/{{card.authorId}}">{{card.author}}</a></span></i>
+	</div>
 </div>
