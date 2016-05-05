@@ -192,7 +192,7 @@ controllers.
         $scope.createPost = function(post) {
             post.tag = $("#post-tags").materialtags("items");
             var url = '/posts/create'; 
-            console.log(post.tags);
+            
             $http({
                 method: 'POST',
                 url: url,
@@ -206,7 +206,7 @@ controllers.
                     } else {
                       $window.location.href = res.success;
                     }
-                    
+                    post = {};
                 });
         }
     }]);

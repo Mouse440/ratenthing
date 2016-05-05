@@ -19,7 +19,9 @@ router.post('/like', function(req, res, next) {
             return console.log(err);
         }
         console.log('{ method : /like }, { status : pass }');
-        res.json({info : post});
+        res.json({
+            info: post
+        });
     });
 });
 
@@ -37,13 +39,17 @@ router.post('/create', function(req, res, next) {
             console.log("{error: error}");
             return console.log(err);
         }
-        tagService.addTag(req.body.tag, new_tags, function(err, num) {
-            if (err) {
-                console.log(err);
-                return console.log('{status : fail}');
-            }
-            next();
-        });
+        if (new_tags.length > 0) {
+            console.log(new_tags.length)
+            tagService.addTag(req.body.tag, new_tags, function(err, num) {
+                if (err) {
+                    console.log(err);
+                    return console.log('{status : fail}');
+                }
+                next();
+            });
+        }
+        next();
     });
 });
 
@@ -113,7 +119,7 @@ router.get('/getbyid/:id', function(req, res, next) {
         }
         console.log('{ method : /getbyid }, { status : pass }');
         res.json({
-            info : post
+            info: post
         });
     });
 });
